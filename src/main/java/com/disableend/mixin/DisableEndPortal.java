@@ -12,11 +12,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Objects;
+
 @Mixin(EndPortalBlock.class)
 public class DisableEndPortal {
     @Inject(method = "onEntityCollision", at = @At("HEAD"), cancellable = true)
     private void noEnd(BlockState state, World world, BlockPos pos, Entity entity, EntityCollisionHandler handler, CallbackInfo ci){
-        if (world.getServer().getGameRules().getBoolean(DisableEnd.DISABLE_END)) {
+        if (Objects.requireNonNull(world.getServer()).getGameRules().getBoolean(DisableEnd.DISABLE_END)) {
             ci.cancel();
         }
     }

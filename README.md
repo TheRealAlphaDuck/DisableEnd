@@ -1,8 +1,8 @@
 # Disable End
 
-## Setup
+Simple mod that adds a gamerule that allows you to dynamically disable collisions with end portal blocks
 
-For setup instructions please see the [fabric documentation page](https://docs.fabricmc.net/develop/getting-started/setting-up-a-development-environment) that relates to the IDE that you are using.
+Requires Fabric API
 
 ## License
 
